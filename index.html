@@ -1,0 +1,354 @@
+---
+# Front Matter ini memberi tahu Jekyll untuk memproses halaman ini
+layout: none
+---
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PKC PMII Bali Nusra</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        body.is-loading { overflow: hidden; }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .card-enter { transform: translateY(50px); }
+        .feature-enter-left { transform: translateX(-50px); }
+        .feature-enter-right { transform: translateX(50px); }
+        
+        .card-enter-active, .feature-enter-active {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        .aspect-2-1 { aspect-ratio: 2 / 1; }
+
+        #mobile-menu { 
+            max-height: 0; 
+            overflow: hidden; 
+            transition: max-height 0.5s ease-in-out; 
+        }
+        #mobile-menu.active { 
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body class="bg-white is-loading">
+
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 bg-white z-50 flex justify-center items-center transition-opacity duration-500">
+        <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzF1cjh4azczenl0MGJlMmU2cG5vYjZlbHJ4MWI1ODR1NmZ5YWlvZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/f2iyEmbEMZT7BRPxyr/giphy.gif" alt="Loading..." class="w-40 h-40">
+    </div>
+
+    <!-- Header Navigasi -->
+    <header class="bg-gradient-to-r from-[#0973d6] to-[#2918a9] text-white shadow-md sticky top-0 z-40">
+        <div class="container mx-auto px-6">
+            <div class="relative flex items-center justify-center h-20">
+                <!-- Desktop -->
+                <nav class="hidden md:flex items-center">
+                    <ul class="flex items-center space-x-8 text-lg">
+                        <li><a href="{{ site.baseurl }}/index.html" class="font-bold text-[#ffcb05] border-b-2 border-[#ffcb05] pb-1">Home</a></li>
+                        <li><a href="{{ site.baseurl }}/about.html" class="hover:text-[#ffcb05] transition-colors duration-300">About</a></li>
+                        <li><a href="{{ site.baseurl }}/team.html" class="hover:text-[#ffcb05] transition-colors duration-300">Team</a></li>
+                        <li><a href="{{ site.baseurl }}/release.html" class="hover:text-[#ffcb05] transition-colors duration-300">Release</a></li>
+                    </ul>
+                </nav>
+                <!-- Hamburger -->
+                <div class="md:hidden absolute top-1/2 right-0 transform -translate-y-1/2">
+                    <button id="hamburger-button" class="text-white focus:outline-none" aria-label="Buka Menu">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile -->
+            <nav id="mobile-menu" class="md:hidden">
+                <ul class="flex flex-col items-center space-y-4 py-6 text-lg">
+                    <li><a href="{{ site.baseurl }}/index.html" class="font-bold text-[#ffcb05] border-b-2 border-[#ffcb05] pb-1">Home</a></li>
+                    <li><a href="{{ site.baseurl }}/about.html" class="hover:text-[#ffcb05] transition-colors duration-300">About</a></li>
+                    <li><a href="{{ site.baseurl }}/team.html" class="hover:text-[#ffcb05] transition-colors duration-300">Team</a></li>
+                    <li><a href="{{ site.baseurl }}/release.html" class="hover:text-[#ffcb05] transition-colors duration-300">Release</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative w-full h-[40vh] md:h-[30vh] flex items-center justify-center overflow-hidden bg-gradient-to-r from-[#0973d6] to-[#2918a9] z-30">
+            <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmR5MXk4NWZ6b3h2OTcwcDJhaWxuaXk4YmNsaGViNXZjZjF1ZW9wOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/a1IqmhPGTGkzplBYEe/giphy.gif" alt="Latar belakang abstrak" class="absolute inset-0 w-full h-full object-cover opacity-10 z-10" onerror="this.style.display='none'">
+            <img src="assets/images/hero.png" alt="Logo PMII Bali Nusra" class="relative h-1/2 w-1/2 md:w-auto object-contain z-20" onerror="this.onerror=null;this.src='https://placehold.co/600x300/cccccc/ffffff?text=Gambar+Tidak+Tersedia';">
+        </section>
+
+        <!-- Pengurus Section -->
+        <section id="pengurus-section" class="py-16 md:py-24">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col items-center md:flex-row md:items-start md:justify-center gap-y-10 md:gap-x-[10%]">
+                    
+                    <!-- Pengurus Cabang -->
+                    <div class="card-pengurus animate-on-scroll card-enter w-[75%] md:w-[20%]">
+                        <a href="{{ site.baseurl }}/cabang.html" class="block h-full w-full">
+                            <div class="group aspect-square bg-[#ffcb05] text-black rounded-lg shadow-lg p-6 flex flex-col justify-center items-center text-center transition-all duration-300 hover:bg-gradient-to-r from-[#0973d6] to-[#2918a9] hover:text-white hover:scale-105 cursor-pointer h-full">
+                                <h3 class="counter text-2x1 font-bold" data-target="17">+0</h3>
+                                <p class="text-xs font-bold mt-2">PENGURUS CABANG</p>
+                                <p class="text-xs mt-1">Tingkat Kabupaten atau Kota</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Pengurus Komisariat -->
+                    <div class="card-pengurus animate-on-scroll card-enter w-[75%] md:w-[20%]" style="transition-delay: 200ms;">
+                         <a href="{{ site.baseurl }}/komisariat.html" class="block h-full w-full">
+                            <div class="group aspect-square bg-[#ffcb05] text-black rounded-lg shadow-lg p-6 flex flex-col justify-center items-center text-center transition-all duration-300 hover:bg-gradient-to-r from-[#0973d6] to-[#2918a9] hover:text-white hover:scale-105 cursor-pointer h-full">
+                                <h3 class="counter text-2xl font-bold" data-target="32">+0</h3>
+                                <p class="text-xs font-bold mt-2">PENGURUS KOMISARIAT</p>
+                                <p class="text-xs mt-1">Tingkat Kampus atau Instansi</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Pengurus Rayon -->
+                    <div class="card-pengurus animate-on-scroll card-enter w-[75%] md:w-[20%]" style="transition-delay: 400ms;">
+                        <a href="{{ site.baseurl }}/rayon.html" class="block h-full w-full">
+                            <div class="group aspect-square bg-[#ffcb05] text-black rounded-lg shadow-lg p-6 flex flex-col justify-center items-center text-center transition-all duration-300 hover:bg-gradient-to-r from-[#0973d6] to-[#2918a9] hover:text-white hover:scale-105 cursor-pointer h-full">
+                                <h3 class="counter text-2xl font-bold" data-target="125">+0</h3>
+                                <p class="text-xs font-bold mt-2">PENGURUS RAYON</p>
+                                <p class="text-xs mt-1">Tingkat Fakultas atau Jurusan</p>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Fitur Section -->
+        <section id="fitur-terbaik-section" class="py-16 md:py-24 overflow-hidden">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col items-center md:flex-row md:justify-center md:items-stretch gap-y-10 md:gap-x-[15%]">
+                    <!-- Gambar -->
+                    <div class="w-[80%] md:w-[15%] flex justify-center items-center">
+                        <img src="assets/images/apk.png" alt="Tampilan Aplikasi Mobile" class="feature-image animate-on-scroll feature-enter-left object-contain rounded-lg aspect-[1/2] md:aspect-auto h-full" onerror="this.onerror=null;this.src='https://placehold.co/300x600/cccccc/ffffff?text=Gambar+Tidak+Tersedia';">
+                    </div>
+                    <!-- Fitur -->
+                    <div class="w-[75%] md:w-[50%] flex flex-col gap-5">
+                         <a href="https://play.google.com" class="feature-card animate-on-scroll feature-enter-right group bg-[#ffcb05] text-black rounded-lg shadow-lg p-6 flex items-center gap-x-6 transition-all duration-300 hover:bg-gradient-to-r from-[#0973d6] to-[#2918a9] hover:text-white hover:scale-105 cursor-pointer">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                            <span class="text-xs font-bold">Download Sekarang</span>
+                        </a>
+                        <a href="{{ site.baseurl }}/gallery.html" class="feature-card animate-on-scroll feature-enter-right group bg-[#0973d6] text-white rounded-lg shadow-lg p-6 flex items-center gap-x-6 transition-all duration-300 hover:bg-[#ffcb05] hover:text-black hover:scale-105 cursor-pointer" style="transition-delay: 100ms;">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                            <span class="text-xs font-bold">Galeri Pergerakan</span>
+                        </a>
+                         <a href="{{ site.baseurl }}/product.html" class="feature-card animate-on-scroll feature-enter-right group bg-[#0973d6] text-white rounded-lg shadow-lg p-6 flex items-center gap-x-6 transition-all duration-300 hover:bg-[#ffcb05] hover:text-black hover:scale-105 cursor-pointer" style="transition-delay: 200ms;">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                            <span class="text-xs font-bold">Produk Pergerakan</span>
+                        </a>
+                         <a href="{{ site.baseurl }}/card.html" class="feature-card animate-on-scroll feature-enter-right group bg-[#0973d6] text-white rounded-lg shadow-lg p-6 flex items-center gap-x-6 transition-all duration-300 hover:bg-[#ffcb05] hover:text-black hover:scale-105 cursor-pointer" style="transition-delay: 300ms;">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                            <span class="text-xs font-bold">Kartu Pergerakan</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rilis Section -->
+        <section id="rilis-populer-section" class="py-16 md:py-24 overflow-hidden">
+            <div class="container mx-auto px-4">
+                <div class="w-full mx-auto mb-5 md:mb-12">
+                     <h2 class="text-lg md:text-xl font-bold text-center text-black">RILIS TERBARU</h2>
+                </div>
+                <div class="flex flex-col items-center md:flex-row md:justify-center md:gap-x-[10%] md:items-stretch gap-y-10">
+                    <!-- Mengambil 3 post terbaru dari Jekyll -->
+                    {% assign latest_posts = site.posts | slice: 0, 4 %}
+                    {% assign top_post = latest_posts[0] %}
+                    
+                    <!-- Menampilkan post pertama (paling baru) -->
+                    {% if top_post %}
+                    <div class="w-full md:w-[30%] animate-on-scroll feature-enter-left">
+                        <a href="{{ top_post.url | relative_url }}" class="group bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer h-full flex flex-col">
+                            <div class="aspect-2-1 w-full">
+                                <img src="{{ site.baseurl }}{{ top_post.image }}" alt="{{ top_post.title }}" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/ffffff?text=Gagal';">
+                            </div>
+                            <div class="p-4 transition-colors duration-300 group-hover:bg-[#ffcb05] flex-grow flex flex-col justify-between">
+                                <h3 class="font-bold text-xs mb-2 text-black min-h-[4rem]">{{ top_post.title }}</h3>
+                                <div class="flex justify-between text-xs text-black group-hover:text-black">
+                                    <span class="flex items-center gap-2">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                        <span>{{ top_post.date | date: "%d %b %Y" }}</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    {% endif %}
+                    
+                    <!-- Menampilkan 2 post berikutnya -->
+                    {% assign other_posts = latest_posts | slice: 1, 2, 3 %}
+                    {% if other_posts.size > 0 %}
+                    <div class="w-full md:w-[60%] flex flex-col justify-between gap-y-5">
+                        {% for post in other_posts %}
+                        <a href="{{ post.url | relative_url }}" class="release-item animate-on-scroll feature-enter-right group bg-white rounded-lg shadow-lg overflow-hidden flex items-center p-3 gap-4 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-gradient-to-r from-[#0973d6] to-[#2918a9] cursor-pointer" style="transition-delay: 200ms;">
+                            <div class="aspect-1-1 w-28 flex-shrink-0">
+                                <img src="{{ site.baseurl }}{{ post.image }}" alt="{{ post.title }}" class="w-full h-full object-cover rounded-md" onerror="this.onerror=null;this.src='https://placehold.co/100x50/cccccc/ffffff?text=Gagal';">
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-bold text-xs mb-2 text-black group-hover:text-white min-h-[3rem]">{{ post.title }}</h3>
+                                <div class="flex justify-between text-xs text-black group-hover:text-white">
+                                    <span class="flex items-center gap-2">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                        <span>{{ post.date | date: "%d %b %Y" }}</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-[#0973d6] to-[#2918a9] text-white pt-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-center items-start gap-y-10 md:gap-x-[10%]">
+                
+                <!-- Media Sosial -->
+                <div class="w-full md:w-[40%]">
+                    <h3 class="text-lg font-bold text-[#ffcb05] mb-4">Media Sosial</h3>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-center gap-4"><div class="bg-white bg-opacity-20 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v7.028C18.343 21.128 22 16.991 22 12Z"/></svg></div><span>PKC PMII Bali Nusra</span></li>
+                        <li class="flex items-center gap-4"><div class="bg-white bg-opacity-20 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2c-2.717 0-3.056.01-4.122.06-1.065.05-1.79.217-2.428.465a4.898 4.898 0 0 0-1.772 1.153A4.898 4.898 0 0 0 2.52 5.454c-.248.638-.415 1.363-.465 2.428C2.01 8.944 2 9.283 2 12s.01 3.056.06 4.122c.05 1.065.217 1.79.465 2.428a4.898 4.898 0 0 0 1.153 1.772A4.898 4.898 0 0 0 5.454 21.48c.638.248 1.363.415 2.428.465C8.944 21.99 9.283 22 12 22s3.056-.01 4.122-.06c1.065-.05 1.79-.217 2.428-.465a4.898 4.898 0 0 0 1.772-1.153A4.898 4.898 0 0 0 21.48 18.546c.248-.638.415-1.363.465-2.428.05-1.066.06-1.405.06-4.122s-.01-3.056-.06-4.122c-.05-1.065-.217-1.79-.465-2.428a4.898 4.898 0 0 0-1.153-1.772A4.898 4.898 0 0 0 18.546 2.52c-.638-.248-1.363-.415-2.428-.465C15.056 2.01 14.717 2 12 2Zm0 2c2.67 0 2.987.01 4.042.059.975.044 1.502.207 1.857.344.467.182.8.399 1.15.748.35.35.566.683.748 1.15.137.355.3.882.344 1.857.048 1.055.058 1.372.058 4.042s-.01 2.987-.058 4.042c-.044.975-.207 1.502-.344 1.857a3.19 3.19 0 0 1-.748 1.15 3.19 3.19 0 0 1-1.15.748c-.355.137-.882.3-1.857.344-1.055.048-1.372.058-4.042.058s-2.987-.01-4.042-.058c-.975-.044-1.502-.207-1.857-.344a3.19 3.19 0 0 1-1.15-.748 3.19 3.19 0 0 1-.748-1.15c-.137-.355-.3-.882-.344-1.857C4.01 15.013 4 14.697 4 12s.01-2.987.058-4.042c.044-.975.207-1.502.344-1.857.182-.466.399-.8.748-1.15.35-.35.683-.566 1.15-.748.355-.137.882-.3 1.857-.344C9.013 4.01 9.33 4 12 4Zm0 5a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm0-2a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm6.5-2.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" clip-rule="evenodd"/></svg></div><span>@pkc.pmiibalinusra</span></li>
+                        <li class="flex items-center gap-4"><div class="bg-white bg-opacity-20 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M19.802 7.027a2.5 2.5 0 0 0-1.76-1.768C16.532 5 12 5 12 5s-4.532 0-6.042.259a2.5 2.5 0 0 0-1.76 1.768C4 8.536 4 12 4 12s0 3.464.2 4.973a2.5 2.5 0 0 0 1.76 1.768C7.468 19 12 19 12 19s4.532 0 6.042-.259a2.5 2.5 0 0 0 1.76-1.768C20 15.464 20 12 20 12s0-3.464-.198-4.973ZM9.546 14.582V9.418L14.83 12l-5.284 2.582Z" clip-rule="evenodd"/></svg></div><span>PKC PMII Bali-Nusra</span></li>
+                        <li class="flex items-center gap-4"><div class="bg-white bg-opacity-20 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm6.28 13.9c-1.63 2.66-4.58 4.35-7.86 4.35c-1.9 0-3.67-.61-5.07-1.68l8.36-8.36c1.11 1.44 1.74 3.25 1.57 5.09zM5.8 9.54c.9 2.22 2.84 3.93 5.25 4.54l-6.2-6.2c-1.05 1.2-1.74 2.76-1.74 4.46c0 .55.07 1.09.2 1.6zM12 3.5c1.88 0 3.63.79 4.89 2.05l-9.43 9.43C6.23 13.75 5.5 12 5.5 10.04c0-2.38 1.5-4.48 3.63-5.59C10.05 3.81 10.99 3.5 12 3.5z"/></svg></div><span>pmiibalinusra.or.id</span></li>
+                    </ul>
+                </div>
+                
+                <!-- Alamat -->
+                <div class="w-full md:w-[40%] md:pl-10">
+                    <h3 class="text-lg font-bold text-[#ffcb05] mb-4">Alamat</h3>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start gap-4"><div class="bg-white bg-opacity-20 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div><span>pkcbalinusra@gmail.com</span></li>
+                        <li class="flex items-start gap-4"><div class="bg-white bg-opacity-20 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg></div><span>+62 877-5432-2362</span></li>
+                        <li class="flex items-start gap-4"><div class="bg-white bg-opacity-20 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg></div><span class="flex-1">Jl. Catur Warga No. 9A, Kelurahan Pejanggik, Kecamatan Mataram Timur, Kota Mataram, Provinsi Nusa Tenggara Barat, Indonesia (83127)</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="text-center text-xs text-white border-t border-white border-opacity-30 mt-10 py-6">
+                 <p>&copy; 2025 - 2027 PKC PMII Bali Nusra</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menjalankan skrip setelah seluruh konten halaman dimuat
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Fungsi untuk mengelola preloader
+            function initPreloader() {
+                const preloader = document.getElementById('preloader');
+                if (!preloader) return;
+                // Memberi jeda singkat sebelum menghilangkan preloader
+                setTimeout(() => {
+                    preloader.style.opacity = '0';
+                    // Menghapus elemen preloader dari DOM setelah transisi selesai
+                    preloader.addEventListener('transitionend', () => {
+                        preloader.style.display = 'none';
+                        document.body.classList.remove('is-loading');
+                        // Memulai observer animasi setelah preloader hilang
+                        initScrollObserver(); 
+                    }, { once: true });
+                }, 3000); // Durasi preloader tampil (3 detik)
+            }
+
+            // Fungsi untuk menu navigasi mobile
+            function initMobileMenu() {
+                const hamburgerButton = document.getElementById('hamburger-button');
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (hamburgerButton && mobileMenu) {
+                    hamburgerButton.addEventListener('click', () => {
+                        mobileMenu.classList.toggle('active');
+                    });
+                }
+            }
+
+            // Fungsi untuk menganimasikan angka (counter)
+            function animateCounter(counterElement) {
+                const target = +counterElement.getAttribute('data-target');
+                if (isNaN(target)) return; // Lewati jika target bukan angka
+                const duration = 2000; // Durasi animasi 2 detik
+                let startTime = null;
+
+                const step = (timestamp) => {
+                    if (!startTime) startTime = timestamp;
+                    const progress = Math.min((timestamp - startTime) / duration, 1);
+                    counterElement.innerText = '+' + Math.floor(progress * target);
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    } else {
+                        counterElement.innerText = '+' + target; // Pastikan nilai akhir sesuai target
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }
+
+            // Fungsi untuk mengamati elemen saat di-scroll dan memicu animasi
+            function initScrollObserver() {
+                const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+                if (elementsToAnimate.length === 0) return;
+
+                const observerCallback = (entries, observer) => {
+                    entries.forEach(entry => {
+                        // Jika elemen masuk ke dalam viewport
+                        if (entry.isIntersecting) {
+                            const target = entry.target;
+                            target.classList.add('card-enter-active', 'feature-enter-active');
+                            
+                            // Cek jika elemen memiliki counter dan belum dianimasikan
+                            const counter = target.querySelector('.counter');
+                            if (counter && !counter.classList.contains('animated')) {
+                                animateCounter(counter);
+                                counter.classList.add('animated'); // Tandai sebagai sudah dianimasikan
+                            }
+
+                            // Berhenti mengamati elemen setelah animasi dijalankan
+                            observer.unobserve(target);
+                        }
+                    });
+                };
+                
+                const observer = new IntersectionObserver(observerCallback, {
+                    root: null,
+                    threshold: 0.1, // Picu animasi saat 10% elemen terlihat
+                });
+
+                elementsToAnimate.forEach(el => observer.observe(el));
+            }
+            
+            // Memanggil fungsi inisialisasi
+            initPreloader();
+            initMobileMenu();
+        });
+    </script>
+</body>
+</html>
